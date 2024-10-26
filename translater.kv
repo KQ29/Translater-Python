@@ -1,0 +1,44 @@
+<TranslatorScreen>:
+    cols: 1
+    padding: 10
+    spacing: 10
+
+    GridLayout:
+        cols: 2
+        size_hint_y: None
+        height: '50dp'
+        spacing: 10
+
+        Spinner:
+            id: input_lang
+            text: 'Select Input Language'
+            size_hint_x: 0.5
+
+        Spinner:
+            id: output_lang
+            text: 'Select Output Language'
+            size_hint_x: 0.5
+
+    TextInput:
+        id: input_text
+        hint_text: 'Enter text to translate'
+        size_hint_y: 2
+
+    Button:
+        text: 'Translate'
+        size_hint_y: None
+        height: '50dp'
+        background_color: (0, 1, 0, 1)  # Green color for translate button
+        on_press: root.translate_text()
+
+    Label:
+        id: output_text
+        text: 'Translation will appear here'
+        size_hint_y: 2
+        color: (1, 1, 1, 1)  # Color: 105088
+        canvas.before:
+            Color:
+                rgba: (16/255, 80/255, 136/255, 1)  # Background color: 105088
+            Rectangle:
+                pos: self.pos
+                size: self.size
